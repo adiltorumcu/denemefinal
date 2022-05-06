@@ -1,2 +1,1 @@
-deneme
-adıl flflfkls 
+gdhf
