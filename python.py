@@ -1,2 +1,0 @@
-deneme
-adıl flflfkls 
