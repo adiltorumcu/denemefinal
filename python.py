@@ -2,6 +2,7 @@
 Example code showing how to create a button,
 and the three ways to process button events.
 """
+from turtle import width
 import arcade
 import arcade.gui
 
@@ -32,4 +33,10 @@ class MyWindow(arcade.Window):
     start_button = arcade.gui.UIFlatButton(text="Quit",width=200)
     self.v_box.add(start_button.with_space_around(bottom=20))
 
-    
+    settings_button =arcade.gui.UIFlatButton(text="Settings" , width=200)
+    self.v_box.add(settings_button.with_space_around(bottom=20))
+
+    #Again,method 1. Use child class to handle events.
+    quit_button = QuitButton(text="Start Game", width=200)
+    self.v_box.add(quit_button)
+
