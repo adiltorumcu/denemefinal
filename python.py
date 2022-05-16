@@ -13,4 +13,13 @@ class QuitButton(arcade.gui.UIFlatButton) :
           arcade. exit() 
 
 
-          
+class MyWindow(arcade.Window):
+    def_init_(self):
+    super().__init__(800, 600, "UIFlatButton Example" , resizable=True)
+
+    # --- Required for all code that uses UI element,
+    # a UIManager to handle the UI.
+    self.manager = arcade.gui.UIManager()
+    self.manager.enable()
+
+    
