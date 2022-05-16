@@ -22,4 +22,14 @@ class MyWindow(arcade.Window):
     self.manager = arcade.gui.UIManager()
     self.manager.enable()
 
+    # Set background color 
+    arcade.set_background_color(arcade.color.DARK_BLUE_GRAY)
+
+    # Create a vertical BoxGroup to align buttons
+    self.v_box = arcade.gui.UIBoxLayout()
+    
+    # Create the buttons 
+    start_button = arcade.gui.UIFlatButton(text="Quit",width=200)
+    self.v_box.add(start_button.with_space_around(bottom=20))
+
     
