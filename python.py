@@ -57,5 +57,28 @@ class MyWindow(arcade.Window):
             anchor_y="center_y"
             child=self.v_box)
     )
+  def on_click_start(self,event):
+      print("Start:", event)
 
-    
+  def on_draw(self):
+      self.clear()
+      self.manager.draw()
+
+
+window = MyWindow()
+arcade.run()
+import turtle
+import random
+import time 
+
+
+pencere = turtle.Screen()
+pencere.title("Dinosaur Game")
+pencere.bgcolor("black")
+pencere.setup(height=500, widht=800)
+pencere.bgpic("back.gif")
+pencere.tracer(0)
+
+pencere.register_shape("dino.gif")
+pencere.register_shape("cactus.gif")
+
