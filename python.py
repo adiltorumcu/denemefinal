@@ -44,4 +44,18 @@ class MyWindow(arcade.Window):
     # assing self.on_click_start as callback
     start_button.on_click = self.on_click_start
     
+    # --- Method 3 for handling click events,
+    # use a decorator to handle on_click events
+    @settings_button.event("on_click")
+    def on_click_settings(event):
+        print("Settings:", event)
+    
+    #Create a widget to hold the v_box widget, that will center the buttons
+    self.manager.add(
+        arcade.gui.UIAnchorWidget(
+            anchor_x="center_x"
+            anchor_y="center_y"
+            child=self.v_box)
+    )
 
+    
