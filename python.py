@@ -40,3 +40,8 @@ class MyWindow(arcade.Window):
     quit_button = QuitButton(text="Start Game", width=200)
     self.v_box.add(quit_button)
 
+    # --- Method 2 for handling click events,
+    # assing self.on_click_start as callback
+    start_button.on_click = self.on_click_start
+    
+
