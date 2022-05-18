@@ -82,3 +82,16 @@ pencere.tracer(0)
 pencere.register_shape("dino.gif")
 pencere.register_shape("cactus.gif")
 
+dino = turtle.Turtle()
+dino.spedd(0)
+dino.shape("dino.gif")
+dino.color("green")
+dino.penup()
+dino.dy = 0
+dino.dx = 0
+dino.state = "ready"
+dino.height = 100
+dino.width  = 120
+dino.goto(-200, -50)
+
+gravity = -0.5
