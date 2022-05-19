@@ -28,7 +28,7 @@ class MyWindow(arcade.Window):
         # Create a vertical BoxGroup to align buttons
         self.v_box = arcade.gui.UIBoxLayout()
 
-        # Create the buttons
+         # Create the buttons
         start_button = arcade.gui.UIFlatButton(text="Quit", width=200)
         self.v_box.add(start_button.with_space_around(bottom=20))
 

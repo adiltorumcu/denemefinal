@@ -95,3 +95,8 @@ dino.width  = 120
 dino.goto(-200, -50)
 
 gravity = -0.5
+
+kaktus = turtle.Turtle()
+kaktus.speed(0)
+kaktus.shape("cactus.gif")
+kaktus.color("green")
