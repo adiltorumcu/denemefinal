@@ -106,3 +106,11 @@ kaktus.height = 60
 kaktus.width = 28
 kaktus.goto(200 ,-70)
 
+def jump() :
+    if dino.state == "ready":
+        dino.dy = 12
+        dino.state = "jumping"
+
+pencere.listen()
+pencere.onkeypress(jump,"space")
+
