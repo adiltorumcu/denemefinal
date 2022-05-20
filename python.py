@@ -100,3 +100,9 @@ kaktus = turtle.Turtle()
 kaktus.speed(0)
 kaktus.shape("cactus.gif")
 kaktus.color("green")
+kaktus.penup()
+kaktus.dx = -5
+kaktus.height = 60
+kaktus.width = 28
+kaktus.goto(200 ,-70)
+
