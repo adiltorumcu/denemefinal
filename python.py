@@ -114,3 +114,21 @@ def jump() :
 pencere.listen()
 pencere.onkeypress(jump,"space")
 
+while True:
+    time.sleep(0.01)
+    if dino.ycor() < -50:
+        dino.sety(-50)
+        dino.dy=0
+        dino.state="ready"
+
+        if dino.ycor() != -50 and dino.state=="jumping":
+            dino.dy+=gravity
+
+        y=dino.ycor()
+        y +=dino.dy
+        dino.sety(y)
+        x = kaktus.xcor()
+        x +=kaktus.dx
+        kaktus.setx(x)
+
+        
