@@ -140,4 +140,4 @@ while True:
             print('GAME OVER')
 
         pencere.uptade()
-        from tkinder import*
+        from tkinter import*
