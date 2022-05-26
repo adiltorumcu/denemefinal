@@ -3,6 +3,7 @@ Example code showing how to create a button,
 and the three ways to process button events.
 """
 from turtle import width
+from winreg import KEY_CREATE_SUB_KEY
 import arcade
 import arcade.gui
 
@@ -131,4 +132,12 @@ while True:
         x +=kaktus.dx
         kaktus.setx(x)
 
-        
+        if kaktus.xcor() < -400:
+            x = random.randint(400, 600)
+            kaktus.setx(x)
+            kaktus.dx *= 1.05 
+        if  kaktus.distance(dino) < 30:
+            print('GAME OVER')
+
+            pencere.uptade()
+            
