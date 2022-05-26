@@ -138,6 +138,6 @@ while True:
             kaktus.dx *= 1.05 
         if  kaktus.distance(dino) < 30:
             print('GAME OVER')
-
             pencere.uptade()
+            
             
