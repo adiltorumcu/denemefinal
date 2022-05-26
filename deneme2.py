@@ -10,7 +10,7 @@ import arcade.gui
 # --- Method 1 for handling click events,
 # Create a child class.
 class QuitButton(arcade.gui.UIFlatButton):
-    def on_click(self, event: arcade.gui.UIOnClickEvent):
+      def on_click(self, event: arcade.gui.UIOnClickEvent):
         arcade.exit()
 
 
@@ -122,23 +122,22 @@ while True:
         dino.dy = 0
         dino.state = "ready"
 
-    if dino.ycor() != -50 and dino.state == "jumping":
-        dino.dy += gravity
+        if dino.ycor() != -50 and dino.state == "jumping":
+            dino.dy += gravity
 
-    y = dino.ycor()
-    y += dino.dy
-    dino.sety(y)
-    x = kaktus.xcor()
-    x += kaktus.dx
-    kaktus.setx(x)
-
-    if kaktus.xcor() < -400:
-        x = random.randint(400, 600)
+        y = dino.ycor()
+        y += dino.dy
+        dino.sety(y)
+        x = kaktus.xcor()
+        x += kaktus.dx
         kaktus.setx(x)
-        kaktus.dx *= 1.05
-    if kaktus.distance(dino) < 30:
-        print('GAME OVER')
 
-    pencere.update()
-    from tkinter import *
+        if kaktus.xcor() < -400:
+            x = random.randint(400, 600)
+            kaktus.setx(x)
+            kaktus.dx *= 1.05
+        if kaktus.distance(dino) < 30:
+            print('GAME OVER')
 
+        pencere.update()
+        from tkinter import *
