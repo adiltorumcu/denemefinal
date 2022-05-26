@@ -68,3 +68,14 @@ class MyWindow(arcade.Window):
 window = MyWindow()
 arcade.run()
 
+import turtle
+import random
+import time
+
+pencere = turtle.Screen()
+pencere.title("Dinosaur Game")
+pencere.bgcolor("black")
+pencere.setup(height=500,width=800)
+pencere.bgpic("back.gif")
+pencere.tracer(0)
+
