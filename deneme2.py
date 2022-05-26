@@ -1,3 +1,4 @@
+
 """
 Example code showing how to create a button,
 and the three ways to process button events.
@@ -140,21 +141,4 @@ while True:
 
     pencere.update()
     from tkinter import *
-import tkinter as tk
 
-pencere = tk.Tk()
-pencere.geometry("300x300")
-
-imaj = PhotoImage(file="game-over.gif")
-
-kimaj = imaj.subsample(2,2)
-
-bimaj = PhotoImage(file="game-over.gif")
-bkimaj = bimaj.subsample(10,10)
-
-b = Button(text="Oyun",image=bkimaj,compound=LEFT)
-
-b.place(x=10,y=10)
-
-
-pencere.mainloop()

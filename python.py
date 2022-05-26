@@ -139,5 +139,5 @@ while True:
         if  kaktus.distance(dino) < 30:
             print('GAME OVER')
 
-            pencere.uptade()
-            
+        pencere.uptade()
+        from tkinder import*
