@@ -65,3 +65,25 @@ class MyWindow(arcade.Window):
 
 window = MyWindow()
 arcade.run()
+
+import turtle, random
+import winsound
+
+pencere = turtle.Screen()
+pencere.bgcolor('black')
+pencere.title('Uzay savaşı')
+pencere.bgpic('uzay.gif')
+pencere.steup(widht=600, height=600)
+
+turtle.register_shape('oyuncu.gif')
+turtle.register_shape('dusman.gif')
+turtle.register_shape('ates.gif')
+
+oyuncu = turtle.Turtle()
+oyuncu.color('blue')
+oyuncu.speed(0)
+oyuncu.shape('oyuncu.gif')
+oyuncu.setheading(90)
+oyuncu.penup()
+oyuncu.goto(0, -250)
+oyuncuhizi = 20
