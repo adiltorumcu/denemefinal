@@ -34,4 +34,26 @@ class MyWindow(arcade.Window):
 
         settings_button = arcade.gui.UIFlatButton(text="Settings",widht=200)
         self.v_box.add(settings_button.with_space_around(bottom=20))
-    
+
+        # Again, method 1. Use a child class to handle events
+        quit_button = QuitButton(text="Quit", widht=200)
+        self.v_box.add(quit_button)
+
+        # --- Method 2 for handling click events,
+        # assign self.on_click_start as callback
+        start_button.on_click = self.on_click_start
+
+        # --- Method 3 for handling click events,
+        # use a decorator to handle on_click events
+        @settings_button.event("on_click")
+        def on_click_settings(event):
+            print("Settings:", event)
+
+        # Create a widget to hold the v_box widget, that will center the buttons
+        self.manager.add(
+             arcade.gui.UIAnchorWidget(
+                 anchor_x="center_x",
+                 anchor_y="center_y",
+                 child=self.v_box)
+        )    
+        
