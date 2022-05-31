@@ -87,3 +87,44 @@ oyuncu.setheading(90)
 oyuncu.penup()
 oyuncu.goto(0, -250)
 oyuncuhizi = 20
+
+ates = turtle.Turtle()
+ates.color('yellow')
+ates.speed(0)
+ates.shape('ates.gif')
+ates.setheading(90)
+ates.penup()
+ates.goto(0,-240)
+ateshizi = 20
+ates.hideturtle()
+ates.turtlesize(1,1)
+ateskontrol = False
+
+yaz = turtle.Turtle()
+yaz.color('white')
+yaz.speed(0)
+yaz.penup()
+yaz.goto(0,200)
+yaz.hideturtle()
+
+def atesgit():
+    y = ates.ycor()
+    y = y + ateshizi
+    ates.sety(y)
+def sola_git():
+    x = oyuncu.xcor()
+    x = x + oyuncuhizi
+    if x > 300:
+        x=300
+    oyuncu.setx(x)
+def yukarı_git():
+    y = oyuncu.ycor()
+    y = y + oyuncuhizi
+    if y > 270:
+        oyuncu.sety(y)
+def asagi_git():
+    y = oyuncu.ycor()
+    y = y - oyuncuhizi
+    if y <-270:
+        y = -270
+        oyuncu.sety(y)
