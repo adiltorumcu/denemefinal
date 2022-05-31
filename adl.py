@@ -114,7 +114,7 @@ def atesgit():
     ates.sety(y)
 def sola_git():
     x = oyuncu.xcor()
-    x = x + oyuncuhizi
+    x = x - oyuncuhizi
     if x < -300:
         x = -300
     oyuncu.setx(x)
@@ -161,7 +161,7 @@ for hedef in hedefler:
 
 
 pencere.listen()
-pencere.onkey(sola_git,'Left')
+pencere.onkey(sola_git,'Left ')
 pencere.onkey(saga_git,'Right')
 pencere.onkey(yukarı_git,'Up')
 pencere.onkey(asagi_git,'Down')
