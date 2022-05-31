@@ -163,7 +163,7 @@ for hedef in hedefler:
 pencere.listen()
 pencere.onkey(sola_git,'Left')
 pencere.onkey(saga_git,'Right')
-pencere.onkey(yukari_git,'Up')
+pencere.onkey(yukarı_git,'Up')
 pencere.onkey(asagi_git,'Down')
 pencere.onkey(ateset, 'space')
 
