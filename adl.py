@@ -14,6 +14,7 @@ class QuitButton(arcade.gui.UIFlatButton) :
 
 
 class MyWindow(arcade.Window):
+    
     def __init__(self):
         super().__init__(800,600, "UIFlatBUtton,",resizable=True)
 
@@ -73,7 +74,7 @@ pencere = turtle.Screen()
 pencere.bgcolor('black')
 pencere.title('Uzay savaşı')
 pencere.bgpic('uzay.gif')
-pencere.steup(widht=600, height=600)
+pencere.setup(width=600, height=600)
 
 turtle.register_shape('oyuncu.gif')
 turtle.register_shape('dusman.gif')
@@ -135,49 +136,48 @@ def asagi_git():
         oyuncu.sety(y)
 def ateset():
     global ateskontrol
-    winsound.Playsound('lazer.waw', winsound.SND_ASYNC)
-    x=oyuncu.xcor()
-    y=oyuncu.ycor()+20
-    ates.goto(x,y)
+    winsound.PlaySound('lazer.wav', winsound.SND_ASYNC)
+    x = oyuncu.xcor()
+    y = oyuncu.ycor() + 20
+    ates.goto(x, y)
     ates.showturtle()
     ateskontrol = True
 
 hedefler = []
 for i in range(7):
-    hedefler.appenf(turtle.Turtle())
-for hedef in hedefler :
+    hedefler.append(turtle.Turtle())
+for hedef in hedefler:
     hedef.color('red')
     hedef.speed(0)
-    hedef.turtlesize(1,1)
+    hedef.turtlesize(1, 1)
     hedef.shape('dusman.gif')
     hedef.penup()
-    hedef.sethedaing(90)
-    x=random.randint(-280,200)
-    y=random.randint(180,260)
-    hedef.goto(x,y)
+    hedef.setheading(90)
+    x = random.randint(-280, 280)
+    y = random.randint(180, 260)
+    hedef.goto(x, y)
 
 
-    pencere.listen()
-    pencere.onkey(sola_git,'Left')
-    pencere.onkey(saga_git,'Right') 
-    pencere.onkey(yukarı_git,'Up')
-    pencere.onkey(asagi_git,'Down')
-    pencere.onkey(ateset,'space')
+pencere.listen()
+pencere.onkey(sola_git,'Left')
+pencere.onkey(saga_git,'Right')
+pencere.onkey(yukarı_git,'Up')
+pencere.onkey(asagi_git,'Down')
+pencere.onkey(ateset, 'space')
 
-    while True:
-     if ateskontrol:
-         atesgit()
-     for hedef in hedefler:
-         y= hedef in hedefler
-         y=hedef.ycor()
-         y= y - 2
-         hedef.sety(y)
-         if hedef.distance(ates)<20:
-             ates.hideturtle()
-             hedef.hideturtle()
-             hedefler.pop(hedefler.index(hedef))
-             winsound.PlaySound('patlama.waw',winsound.SND_ASYNC)
-         if hedef.ycor() <-270 or hedef.distance(oyuncu)<20 :
-             yaz.write('Maalesef Kaybettiniz!',align='center',font=('Courier',24,'bold'))    
-if len(hedefler)==0:
-             yaz.write('Tebrikler,kazandınız!',align='center',font=('Courier',24,'bold'))
+while True:
+    if ateskontrol:
+        atesgit()
+    for hedef in hedefler:
+        y = hedef.ycor()
+        y = y - 2
+        hedef.sety(y)
+        if hedef.distance(ates) < 20:
+            ates.hideturtle()
+            hedef.hideturtle()
+            hedefler.pop(hedefler.index(hedef))
+            winsound.PlaySound('patlama.wav', winsound.SND_ASYNC)
+        if hedef.ycor() < -270 or hedef.distance(oyuncu) < 20:
+            yaz.write('Maalesef, kabettiniz!', align='center', font=('Courier', 24, 'bold'))
+    if len(hedefler) == 0:
+        yaz.write('Tebrikler, kazandınız!', align='center', font=('Courier', 24, 'bold'))
