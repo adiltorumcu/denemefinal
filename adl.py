@@ -117,6 +117,11 @@ def sola_git():
     if x > 300:
         x=300
     oyuncu.setx(x)
+def saga_git():
+    x = oyuncu.xcor()
+    x = x + oyuncuhizi
+    if x > 270:
+        y = 270
 def yukarı_git():
     y = oyuncu.ycor()
     y = y + oyuncuhizi
@@ -140,38 +145,39 @@ def ateset():
 hedefler = []
 for i in range(7):
     hedefler.appenf(turtle.Turtle())
-    for hedef in hedefler :
-        hedef.color('red')
-        hedef.speed(0)
-        hedef.turtlesize(1,1)
-        hedef.shape('dusman.gif')
-        hedef.penup()
-        hedef.sethedaing(90)
-        x=random.randint(-280,200)
-        y=random.randint(180,260)
-        hedef.goto(x,y)
+for hedef in hedefler :
+    hedef.color('red')
+    hedef.speed(0)
+    hedef.turtlesize(1,1)
+    hedef.shape('dusman.gif')
+    hedef.penup()
+    hedef.sethedaing(90)
+    x=random.randint(-280,200)
+    y=random.randint(180,260)
+    hedef.goto(x,y)
 
 
-pencere.listen()
-pencere.onkey(sola_git,'Left')
-pencere.onkey(saga_git,'Right') 
-pencere.onkey(yukarı_git,'Up')
-pencere.onkey(asagi_git,'Down')
-pencere.onkey(ateset,'space')
+    pencere.listen()
+    pencere.onkey(sola_git,'Left')
+    pencere.onkey(saga_git,'Right') 
+    pencere.onkey(yukarı_git,'Up')
+    pencere.onkey(asagi_git,'Down')
+    pencere.onkey(ateset,'space')
 
-while True:
-    if ateskontrol:
-    for hedef in hedefler:
-        y= hedef in hedefler :
-        y=hedef.ycor()
-        y= y - 2
-        hedef.sety(y)
-        if hedef.distance(ates)<20:
-           ates.hideturtle()
-           hedef.hideturtle()
-           hedefler.pop(hedefler.index(hedef))
-           winsound.PlaySound('patlama.waw',winsound.SND_ASYNC)
-        if hedef.ycor() <-270 or hedef.distance(oyuncu)<20 :
-            yaz.write('Maalesef Kaybettiniz!',align='center',font=('Courier',24,'bold'))    
-    if len(hedefler)==0:
-        yaz.write('Tebrikler,kazandınız!',align='center',font=('Courier',24,'bold'))
+    while True:
+     if ateskontrol:
+         atesgit()
+     for hedef in hedefler:
+         y= hedef in hedefler
+         y=hedef.ycor()
+         y= y - 2
+         hedef.sety(y)
+         if hedef.distance(ates)<20:
+             ates.hideturtle()
+             hedef.hideturtle()
+             hedefler.pop(hedefler.index(hedef))
+             winsound.PlaySound('patlama.waw',winsound.SND_ASYNC)
+         if hedef.ycor() <-270 or hedef.distance(oyuncu)<20 :
+             yaz.write('Maalesef Kaybettiniz!',align='center',font=('Courier',24,'bold'))    
+if len(hedefler)==0:
+             yaz.write('Tebrikler,kazandınız!',align='center',font=('Courier',24,'bold'))
