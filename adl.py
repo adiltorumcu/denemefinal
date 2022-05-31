@@ -115,25 +115,27 @@ def atesgit():
 def sola_git():
     x = oyuncu.xcor()
     x = x + oyuncuhizi
-    if x > 300:
-        x=300
+    if x < -300:
+        x = -300
     oyuncu.setx(x)
 def saga_git():
     x = oyuncu.xcor()
     x = x + oyuncuhizi
-    if x > 270:
-        y = 270
+    if x > 300:
+        y = 300
+    oyuncu.setx(x)
 def yukarı_git():
     y = oyuncu.ycor()
     y = y + oyuncuhizi
     if y > 270:
-        oyuncu.sety(y)
+        y = -270
+    oyuncu.sety(y)
 def asagi_git():
     y = oyuncu.ycor()
     y = y - oyuncuhizi
     if y <-270:
         y = -270
-        oyuncu.sety(y)
+    oyuncu.sety(y)
 def ateset():
     global ateskontrol
     winsound.PlaySound('lazer.wav', winsound.SND_ASYNC)
@@ -161,7 +163,7 @@ for hedef in hedefler:
 pencere.listen()
 pencere.onkey(sola_git,'Left')
 pencere.onkey(saga_git,'Right')
-pencere.onkey(yukarı_git,'Up')
+pencere.onkey(yukari_git,'Up')
 pencere.onkey(asagi_git,'Down')
 pencere.onkey(ateset, 'space')
 
