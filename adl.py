@@ -128,15 +128,15 @@ def saga_git():
 def yukarı_git():
         y = oyuncu.ycor()
         y = y + oyuncuhizi
-if y > 270:
-            y= -270
-oyuncu.sety(y)
+        if y > 270:
+                y= -270
+        oyuncu.sety(y)
 def asagi_git():
-        y = oyuncu.ycor()
-        y = y - oyuncuhizi
-if y <-270:
-        y = -270
-oyuncu.sety(y)
+                y = oyuncu.ycor()
+                y = y - oyuncuhizi
+                if y <-270:
+                        y = -270
+                oyuncu.sety(y)
 def ateset():
         global ateskontrol
 winsound.PlaySound('lazer.wav', winsound.SND_ASYNC)
