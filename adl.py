@@ -113,7 +113,7 @@ def atesgit():
     y = ates.ycor()
     y = y + ateshizi
     ates.sety(y)
-    def sola_git():
+def sola_git():
         x = oyuncu.xcor()
         x = x - oyuncuhizi
         if x < -300:
@@ -122,9 +122,9 @@ def atesgit():
 def saga_git():
         x = oyuncu.xcor()
         x = x + oyuncuhizi
-if x > 300:
-        y = 300
-oyuncu.setx(x)
+        if x > 300:
+            x = 300
+        oyuncu.setx(x)
 def yukarı_git():
         y = oyuncu.ycor()
         y = y + oyuncuhizi
@@ -169,18 +169,18 @@ pencere.onkey(asagi_git,'Down')
 pencere.onkey(ateset, 'space')
 
 while True:
-        if ateskontrol:
+    if ateskontrol:
             atesgit()
-        for hedef in hedefler:
+    for hedef in hedefler:
             y = hedef.ycor()
-        y = y - 2
-        hedef.sety(y)
-        if hedef.distance(ates) < 20:
+    y = y - 2
+    hedef.sety(y)
+    if hedef.distance(ates) < 20:
             ates.hideturtle()
             hedef.hideturtle()
             hedefler.pop(hedefler.index(hedef))
             winsound.PlaySound('patlama.wav', winsound.SND_ASYNC)
-        if hedef.ycor() < -270 or hedef.distance(oyuncu) < 20:
+    if hedef.ycor() < -270 or hedef.distance(oyuncu) < 20:
             yaz.write('Maalesef, kaybettiniz!', align='center', font=('Courier', 24, 'bold'))
             pencere.mainloop(100)
             if len(hedefler) == 0:
