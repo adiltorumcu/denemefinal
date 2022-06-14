@@ -170,17 +170,17 @@ pencere.onkey(ateset, 'space')
 
 while True:
     if ateskontrol:
-            atesgit()
+        atesgit()
     for hedef in hedefler:
-            y = hedef.ycor()
-                y = y - 2
-                hedef.sety(y)
-                if hedef.distance(ates) < 20:
-                 ates.hideturtle()
+        y = hedef.ycor()
+        y = y - 2
+        hedef.sety(y)
+        if hedef.distance(ates) < 20:
+            ates.hideturtle()
             hedef.hideturtle()
             hedefler.pop(hedefler.index(hedef))
             winsound.PlaySound('patlama.wav', winsound.SND_ASYNC)
-                if hedef.ycor() < -270 or hedef.distance(oyuncu) < 20:
-                        yaz.write('Maalesef, kabettiniz!', align='center', font=('Courier', 24, 'bold'))
-                if len(hedefler) == 0:
-                        yaz.write('Tebrikler, kazandınız!', align='center', font=('Courier', 24, 'bold'))       
+        if hedef.ycor() < -270 or hedef.distance(oyuncu) < 20:
+            yaz.write('Maalesef, kaybettiniz!', align='center', font=('Courier', 24, 'bold'))
+    if len(hedefler) == 0:
+        yaz.write('Tebrikler, kazandınız!', align='center', font=('Courier', 24, 'bold'))   
