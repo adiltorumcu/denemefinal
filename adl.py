@@ -13,10 +13,9 @@ class QuitButton(arcade.gui.UIFlatButton) :
         arcade.exit()
 
 
-class MyWindow(arcade.Window):
-    
-    def __init__(self):
-        super().__init__(800,600, "UIFlatBUtton,",resizable=True)
+    class MyWindow(arcade.Window):
+     def __init__(self):
+        super().__init__(800,600, "UIFlatBUtton Example,",resizable=True)
 
         # ---Reuquired for all code that uses UI element,
         # a UIManager to handle the UI.
@@ -30,14 +29,14 @@ class MyWindow(arcade.Window):
         self.v_box = arcade.gui.UIBoxLayout()
 
         # Create the buttons.
-        start_button = arcade.gui.UIFlatButton(text= "Quit ", widht=200)
+        start_button = arcade.gui.UIFlatButton(text= "Start Game", widht=200)
         self.v_box.add(start_button.with_space_around(bottom=20))
 
         settings_button = arcade.gui.UIFlatButton(text="Settings",widht=200)
         self.v_box.add(settings_button.with_space_around(bottom=20))
 
         # Again, method 1. Use a child class to handle events
-        quit_button = QuitButton(text="Start Game", widht=200)
+        quit_button = QuitButton(text="Quit", widht=200)
         self.v_box.add(quit_button)
 
         # --- Method 2 for handling click events,
@@ -56,7 +55,8 @@ class MyWindow(arcade.Window):
                  anchor_x="center_x",
                  anchor_y="center_y",
                  child=self.v_box)
-        )    
+        ) 
+
     def on_click_start(self , event):
         print("Start:", event)
 
@@ -64,8 +64,9 @@ class MyWindow(arcade.Window):
         self.clear()
         self.manager.draw()
 
-window = MyWindow()
-arcade.run()
+
+    window =MyWindow()
+    arcade.run()
 
 import turtle, random
 import winsound
@@ -112,52 +113,52 @@ def atesgit():
     y = ates.ycor()
     y = y + ateshizi
     ates.sety(y)
-def sola_git():
-    x = oyuncu.xcor()
-    x = x - oyuncuhizi
-    if x < -300:
-        x = -300
-    oyuncu.setx(x)
+    def sola_git():
+        x = oyuncu.xcor()
+        x = x - oyuncuhizi
+        if x < -300:
+         x = -300
+        oyuncu.setx(x)
 def saga_git():
-    x = oyuncu.xcor()
-    x = x + oyuncuhizi
-    if x > 300:
+        x = oyuncu.xcor()
+        x = x + oyuncuhizi
+if x > 300:
         y = 300
-    oyuncu.setx(x)
+oyuncu.setx(x)
 def yukarı_git():
-    y = oyuncu.ycor()
-    y = y + oyuncuhizi
-    if y > 270:
-        y = -270
-    oyuncu.sety(y)
+        y = oyuncu.ycor()
+        y = y + oyuncuhizi
+if y > 270:
+            y= -270
+oyuncu.sety(y)
 def asagi_git():
-    y = oyuncu.ycor()
-    y = y - oyuncuhizi
-    if y <-270:
+        y = oyuncu.ycor()
+        y = y - oyuncuhizi
+if y <-270:
         y = -270
-    oyuncu.sety(y)
+oyuncu.sety(y)
 def ateset():
-    global ateskontrol
-    winsound.PlaySound('lazer.wav', winsound.SND_ASYNC)
-    x = oyuncu.xcor()
-    y = oyuncu.ycor() + 20
-    ates.goto(x, y)
-    ates.showturtle()
-    ateskontrol = True
+        global ateskontrol
+winsound.PlaySound('lazer.wav', winsound.SND_ASYNC)
+x = oyuncu.xcor()
+y = oyuncu.ycor() + 20
+ates.goto(x, y)
+ates.showturtle()
+ateskontrol = True
 
 hedefler = []
 for i in range(7):
-    hedefler.append(turtle.Turtle())
+        hedefler.append(turtle.Turtle())
 for hedef in hedefler:
-    hedef.color('red')
-    hedef.speed(0)
-    hedef.turtlesize(1, 1)
-    hedef.shape('dusman.gif')
-    hedef.penup()
-    hedef.setheading(90)
-    x = random.randint(-280, 280)
-    y = random.randint(180, 260)
-    hedef.goto(x, y)
+     hedef.color('red')
+hedef.speed(0)
+hedef.turtlesize(1, 1)
+hedef.shape('dusman.gif')
+hedef.penup()
+hedef.setheading(90)
+x = random.randint(-280, 280)
+y = random.randint(180, 260)
+hedef.goto(x, y)
 
 
 pencere.listen()
@@ -168,10 +169,10 @@ pencere.onkey(asagi_git,'Down')
 pencere.onkey(ateset, 'space')
 
 while True:
-    if ateskontrol:
-        atesgit()
-    for hedef in hedefler:
-        y = hedef.ycor()
+        if ateskontrol:
+            atesgit()
+        for hedef in hedefler:
+            y = hedef.ycor()
         y = y - 2
         hedef.sety(y)
         if hedef.distance(ates) < 20:
@@ -181,5 +182,6 @@ while True:
             winsound.PlaySound('patlama.wav', winsound.SND_ASYNC)
         if hedef.ycor() < -270 or hedef.distance(oyuncu) < 20:
             yaz.write('Maalesef, kaybettiniz!', align='center', font=('Courier', 24, 'bold'))
-    if len(hedefler) == 0:
-        yaz.write('Tebrikler, kazandınız!', align='center', font=('Courier', 24, 'bold'))
+            pencere.mainloop(100)
+            if len(hedefler) == 0:
+                yaz.write('Tebrikler, kazandınız!', align='center', font=('Courier', 24, 'bold'))
