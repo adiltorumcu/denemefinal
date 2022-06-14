@@ -13,7 +13,7 @@ class QuitButton(arcade.gui.UIFlatButton) :
         arcade.exit()
 
 
-    class MyWindow(arcade.Window):
+class MyWindow(arcade.Window):
      def __init__(self):
         super().__init__(800,600, "UIFlatBUtton Example,",resizable=True)
 
@@ -29,14 +29,14 @@ class QuitButton(arcade.gui.UIFlatButton) :
         self.v_box = arcade.gui.UIBoxLayout()
 
         # Create the buttons.
-        start_button = arcade.gui.UIFlatButton(text= "Start Game", widht=200)
+        start_button = arcade.gui.UIFlatButton(text= "Start Game", width=200)
         self.v_box.add(start_button.with_space_around(bottom=20))
 
-        settings_button = arcade.gui.UIFlatButton(text="Settings",widht=200)
+        settings_button = arcade.gui.UIFlatButton(text="Settings", width=200)
         self.v_box.add(settings_button.with_space_around(bottom=20))
 
-        # Again, method 1. Use a child class to handle events
-        quit_button = QuitButton(text="Quit", widht=200)
+        # Again, method 1. Use a child class to handle events.
+        quit_button = QuitButton(text="Quit", width=200)
         self.v_box.add(quit_button)
 
         # --- Method 2 for handling click events,
@@ -56,17 +56,17 @@ class QuitButton(arcade.gui.UIFlatButton) :
                  anchor_y="center_y",
                  child=self.v_box)
         ) 
-
-    def on_click_start(self , event):
+     
+     def on_click_start(self, event):
         print("Start:", event)
 
-    def on_draw(self):
-        self.clear()
-        self.manager.draw()
+     def on_draw(self):
+                self.clear()
+                self.manager.draw()
 
 
-    window =MyWindow()
-    arcade.run()
+window= MyWindow()
+arcade.run()
 
 import turtle, random
 import winsound
@@ -173,15 +173,14 @@ while True:
             atesgit()
     for hedef in hedefler:
             y = hedef.ycor()
-    y = y - 2
-    hedef.sety(y)
-    if hedef.distance(ates) < 20:
-            ates.hideturtle()
+                y = y - 2
+                hedef.sety(y)
+                if hedef.distance(ates) < 20:
+                 ates.hideturtle()
             hedef.hideturtle()
             hedefler.pop(hedefler.index(hedef))
             winsound.PlaySound('patlama.wav', winsound.SND_ASYNC)
-    if hedef.ycor() < -270 or hedef.distance(oyuncu) < 20:
-            yaz.write('Maalesef, kaybettiniz!', align='center', font=('Courier', 24, 'bold'))
-            pencere.mainloop(100)
-            if len(hedefler) == 0:
-                yaz.write('Tebrikler, kazandınız!', align='center', font=('Courier', 24, 'bold'))
+                if hedef.ycor() < -270 or hedef.distance(oyuncu) < 20:
+                        yaz.write('Maalesef, kabettiniz!', align='center', font=('Courier', 24, 'bold'))
+                if len(hedefler) == 0:
+                        yaz.write('Tebrikler, kazandınız!', align='center', font=('Courier', 24, 'bold'))       
