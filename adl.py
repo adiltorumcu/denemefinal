@@ -15,6 +15,57 @@ class QuitButton(arcade.gui.UIFlatButton) :
 
 
 class MyWindow(arcade.Window):
+<<<<<<< HEAD
+    def __init__(self):         
+            super().__init__(800,600, "UIFlatBUtton Example,",resizable=True)
+
+            # ---Reuquired for all code that uses UI element,
+            # a UIManager to handle the UI.
+            self.manager = arcade.gui.UIManager()
+            self.manager.enable()
+
+            # Set background color
+            arcade.set_background_color(arcade.color.DARK_BLUE_GRAY)
+
+            # Create a vertical BoxGroup to align buttons
+            self.v_box = arcade.gui.UIBoxLayout()
+
+            # Create the buttons.
+            start_button = arcade.gui.UIFlatButton(text= "Quit", width=200)
+            self.v_box.add(quit_button.with_space_around(bottom=20))
+
+            settings_button = arcade.gui.UIFlatButton(text="Settings", width=200)
+            self.v_box.add(settings_button.with_space_around(bottom=20))
+
+            # Again, method 1. Use a child class to handle events.
+            quit_button = QuitButton(text="Start Game", width=200)
+            self.v_box.add(quit_button)
+
+            # --- Method 2 for handling click events,
+            # assign self.on_click_start as callback
+            start_button.on_click = self.on_click_start
+
+            # --- Method 3 for handling click events,
+            # use a decorator to handle on_click events
+            @settings_button.event("on_click")
+            def on_click_settings(event):
+                print("Settings:", event)
+
+            # Create a widget to hold the v_box widget, that will center the buttons
+            self.manager.add(
+                arcade.gui.UIAnchorWidget(
+                anchor_x="center_x",
+                anchor_y="center_y",
+                child=self.v_box)
+        ) 
+     
+def on_click_start(self, event):
+            print("Start:", event)
+
+def on_draw(self):
+            self.clear()
+            self.manager.draw()
+=======
     def __init__(self):
         super().__init__(800, 600, "UIFlatButton Example" , resizable=True)
 
@@ -64,6 +115,7 @@ class MyWindow(arcade.Window):
     def on_draw(self):
         self.clear()
         self.manager.draw()
+>>>>>>> d730a498d6982480ca53a124ae2493228c8a28c4
 
 window = MyWindow()
 
@@ -168,8 +220,8 @@ ates.showturtle()
 ateskontrol = True
 
 hedefler = []
-for i in range(7):
-        hedefler.append(turtle.Turtle())
+for i in range(8):
+    hedefler.append(turtle.Turtle())
 for hedef in hedefler:
      hedef.color('red')
      hedef.speed(0)
@@ -191,8 +243,22 @@ pencere.onkey(ateset, 'space')
 
 while True:
     if ateskontrol:
-            atesgit()
+        atesgit()
     for hedef in hedefler:
+<<<<<<< HEAD
+        y = hedef.ycor()
+        y = y - 2
+        hedef.sety(y)
+        if hedef.distance(ates) < 20:
+            ates.hideturtle()
+            hedef.hideturtle()
+            hedefler.pop(hedefler.index(hedef))
+            winsound.PlaySound('patlama.wav', winsound.SND_ASYNC)
+        if hedef.ycor() < -270 or hedef.distance(oyuncu) < 20:
+            yaz.write('Maalesef, kaybettiniz!', align='center', font=('Courier', 24, 'bold'))
+    if len(hedefler) == 0:
+        yaz.write('Tebrikler, kazandınız!', align='center', font=('Courier', 24, 'bold'))   
+=======
             y = hedef.ycor()
             y = y - 2
             hedef.sety(y)
@@ -204,3 +270,4 @@ while True:
 
             if hedef.ycor() < -270 or hedef.distance(oyuncu) < 20:
                 yaz.write('Maalesef, kabettiniz!', align='center', font=('Courier', 24, 'bold'))
+>>>>>>> d730a498d6982480ca53a124ae2493228c8a28c4
