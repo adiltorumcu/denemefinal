@@ -38,16 +38,6 @@ class MyWindow(arcade.Window):
 
         #Again,method 1. Use child class to handle events.
         quit_button = QuitButton(text="Start Game", width=200)
-
-        # Create the buttons.
-        start_button = arcade.gui.UIFlatButton(text= "Start Game", width=200)
-        self.v_box.add(start_button.with_space_around(bottom=20))
-
-        settings_button = arcade.gui.UIFlatButton(text="Settings", width=200)
-        self.v_box.add(settings_button.with_space_around(bottom=20))
-
-        # Again, method 1. Use a child class to handle events.
-        quit_button = QuitButton(text="Quit", width=200)
         self.v_box.add(quit_button)
 
         # --- Method 2 for handling click events,
