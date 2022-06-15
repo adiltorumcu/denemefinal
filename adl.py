@@ -101,4 +101,48 @@ ates.goto(0, -240)
 ateshizi = 20
 ates.hideturtle()
 ates.turtlesize(1, 1)
-ateskontrol = False   
+ateskontrol = False  
+
+yaz = turtle.Turtle()
+yaz.color('white')
+yaz.speed(0)
+yaz.penup()
+yaz.goto(0, 200)
+yaz.hideturtle()
+ 
+def atesgit():
+    y = ates.ycor()
+    y = y + ateshizi
+    ates.sety(y)
+def sola_git():
+    x = oyuncu.xcor()
+    x = x - oyuncuhizi
+    if x < -300:
+        x = -300
+    oyuncu.setx(x)
+def saga_git():
+    x = oyuncu.xcor()
+    x = x + oyuncuhizi
+    if x > 300:
+        x = 300
+    oyuncu.setx(x)
+def yukari_git():
+    y = oyuncu.ycor()
+    y = y + oyuncuhizi
+    if y > 270:
+        y = 270
+    oyuncu.sety(y)
+def asagi_git():
+    y = oyuncu.ycor()
+    y = y - oyuncuhizi
+    if y < -270:
+        y = -270
+    oyuncu.sety(y)
+def ateset():
+    global ateskontrol
+    winsound.PlaySound('lazer.wav', winsound.SND_ASYNC)
+    x = oyuncu.xcor()
+    y = oyuncu.ycor() + 20
+    ates.goto(x, y)
+    ates.showturtle()
+    ateskontrol = True
