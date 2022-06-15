@@ -10,8 +10,8 @@ import arcade.gui
 #--- Method 1 for handling click events,
 # Create a child class.
 class QuitButton(arcade.gui.UIFlatButton) :
-      def  on_click(self, event: arcade.gui.UIOnClickEvent) :
-        arcade. exit() 
+    def  on_click(self, event: arcade.gui.UIOnClickEvent) :
+         arcade. exit() 
 
 
 class MyWindow(arcade.Window):
@@ -38,6 +38,16 @@ class MyWindow(arcade.Window):
 
         #Again,method 1. Use child class to handle events.
         quit_button = QuitButton(text="Start Game", width=200)
+
+        # Create the buttons.
+        start_button = arcade.gui.UIFlatButton(text= "Start Game", width=200)
+        self.v_box.add(start_button.with_space_around(bottom=20))
+
+        settings_button = arcade.gui.UIFlatButton(text="Settings", width=200)
+        self.v_box.add(settings_button.with_space_around(bottom=20))
+
+        # Again, method 1. Use a child class to handle events.
+        quit_button = QuitButton(text="Quit", width=200)
         self.v_box.add(quit_button)
 
         # --- Method 2 for handling click events,
@@ -57,6 +67,7 @@ class MyWindow(arcade.Window):
                 anchor_y="center_y",
                 child=self.v_box)
         )
+
     def on_click_start(self,event):
         print("Start:", event)
 
@@ -64,8 +75,8 @@ class MyWindow(arcade.Window):
         self.clear()
         self.manager.draw()
 
-
 window = MyWindow()
+
 arcade.run()
 
 import turtle, random
@@ -114,12 +125,13 @@ def atesgit():
     y = y + ateshizi
     ates.sety(y)
 def sola_git():
-    x = oyuncu.xcor()
-    x = x - oyuncuhizi
-    if x < -300:
-        x = -300
-    oyuncu.setx(x)
+        x = oyuncu.xcor()
+        x = x - oyuncuhizi
+        if x < -300:
+         x = -300
+        oyuncu.setx(x)
 def saga_git():
+
     x = oyuncu.xcor()
     x = x + oyuncuhizi
     if x > 300:
@@ -137,28 +149,47 @@ def asagi_git():
     if y < -270:
         y = -270
     oyuncu.sety(y)
-def ateset():
-    global ateskontrol
-    winsound.PlaySound('lazer.wav', winsound.SND_ASYNC)
+
     x = oyuncu.xcor()
-    y = oyuncu.ycor() + 20
-    ates.goto(x, y)
-    ates.showturtle()
-    ateskontrol = True
+    x = x + oyuncuhizi
+    if x > 300:
+        x = 300
+        oyuncu.setx(x)
+def yukarı_git():
+        y = oyuncu.ycor()
+        y = y + oyuncuhizi
+        if y > 270:
+                y= -270
+        oyuncu.sety(y)
+def asagi_git():
+                y = oyuncu.ycor()
+                y = y - oyuncuhizi
+                if y <-270:
+                        y = -270
+                oyuncu.sety(y)
+
+def ateset():
+        global ateskontrol
+winsound.PlaySound('lazer.wav', winsound.SND_ASYNC)
+x = oyuncu.xcor()
+y = oyuncu.ycor() + 20
+ates.goto(x, y)
+ates.showturtle()
+ateskontrol = True
 
 hedefler = []
 for i in range(7):
-    hedefler.append(turtle.Turtle())
+        hedefler.append(turtle.Turtle())
 for hedef in hedefler:
-    hedef.color('red')
-    hedef.speed(0)
-    hedef.turtlesize(1, 1)
-    hedef.shape('dusman.gif')
-    hedef.penup()
-    hedef.setheading(90)
-    x = random.randint(-280, 280)
-    y = random.randint(180, 260)
-    hedef.goto(x, y)
+     hedef.color('red')
+hedef.speed(0)
+hedef.turtlesize(1, 1)
+hedef.shape('dusman.gif')
+hedef.penup()
+hedef.setheading(90)
+x = random.randint(-280, 280)
+y = random.randint(180, 260)
+hedef.goto(x, y)
 
 
 pencere.listen()
@@ -170,18 +201,18 @@ pencere.onkey(ateset, 'space')
 
 while True:
     if ateskontrol:
-        atesgit()
+            atesgit()
     for hedef in hedefler:
-        y = hedef.ycor()
-        y = y - 2
-        hedef.sety(y)
-        if hedef.distance(ates) < 20:
-            ates.hideturtle()
-            hedef.hideturtle()
-            hedefler.pop(hedefler.index(hedef))
-            winsound.PlaySound('patlama.wav', winsound.SND_ASYNC)
-        if hedef.ycor() < -270 or hedef.distance(oyuncu) < 20:
-            yaz.write('Maalesef, kabettiniz!', align='center', font=('Courier', 24, 'bold'))
-    if len(hedefler) == 0:
-        yaz.write('Tebrikler, kazandınız!', align='center', font=('Courier', 24, 'bold'))
+            y = hedef.ycor()
+            y = y - 2
+            hedef.sety(y)
+            if hedef.distance(ates) < 20:
+                ates.hideturtle()
+                hedef.hideturtle()
+                hedefler.pop(hedefler.index(hedef))
+                winsound.PlaySound('patlama.wav', winsound.SND_ASYNC)
 
+            if hedef.ycor() < -270 or hedef.distance(oyuncu) < 20:
+                yaz.write('Maalesef, kabettiniz!', align='center', font=('Courier', 24, 'bold'))
+        if len(hedefler) == 0:
+            yaz.write('Tebrikler, kazandınız!', align='center', font=('Courier', 24, 'bold'))
