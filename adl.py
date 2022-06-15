@@ -168,3 +168,15 @@ pencere.onkey(saga_git,'Right')
 pencere.onkey(yukari_git,'Up')
 pencere.onkey(asagi_git,'Down')
 pencere.onkey(ateset, 'space')
+while True:
+    if ateskontrol:
+        atesgit()
+    for hedef in hedefler:
+        y = hedef.ycor()
+        y = y - 2
+        hedef.sety(y)
+        if hedef.distance(ates) < 20:
+            ates.hideturtle()
+            hedef.hideturtle()
+            hedefler.pop(hedefler.index(hedef))
+            winsound.PlaySound('patlama.wav', winsound.SND_ASYNC)
