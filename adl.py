@@ -147,7 +147,7 @@ def ateset():
     ates.showturtle()
     ateskontrol = True
 
-    hedefler = []
+hedefler = []
 for i in range(7):
     hedefler.append(turtle.Turtle())
 for hedef in hedefler:
