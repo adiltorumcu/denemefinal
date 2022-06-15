@@ -48,3 +48,25 @@ class MyWindow(arcade.Window):
         @settings_button.event("on_click")
         def on_click_settings(event):
             print("Settings:", event)
+
+        # Create a widget to hold the v_box widget, that will center the buttons
+        self.manager.add(
+            arcade.gui.UIAnchorWidget(
+                anchor_x="center_x",
+                anchor_y="center_y",
+                child=self.v_box)
+        )
+
+    def on_click_start(self, event):
+        print("Start:", event)
+
+    def on_draw(self):
+        self.clear()
+        self.manager.draw()
+
+
+window = MyWindow()
+arcade.run()
+
+
+         
