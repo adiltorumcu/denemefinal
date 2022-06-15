@@ -172,14 +172,14 @@ for i in range(7):
         hedefler.append(turtle.Turtle())
 for hedef in hedefler:
      hedef.color('red')
-hedef.speed(0)
-hedef.turtlesize(1, 1)
-hedef.shape('dusman.gif')
-hedef.penup()
-hedef.setheading(90)
-x = random.randint(-280, 280)
-y = random.randint(180, 260)
-hedef.goto(x, y)
+     hedef.speed(0)
+     hedef.turtlesize(1, 1)
+     hedef.shape('dusman.gif')
+     hedef.penup()
+     hedef.setheading(90)
+     x = random.randint(-280, 280)
+     y = random.randint(180, 260)
+     hedef.goto(x, y)
 
 
 pencere.listen()
