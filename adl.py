@@ -184,4 +184,4 @@ while True:
             yaz.write('Maalesef, kabettiniz!', align='center', font=('Courier', 24, 'bold'))
     if len(hedefler) == 0:
         yaz.write('Tebrikler, kazandınız!', align='center', font=('Courier', 24, 'bold'))
-        
+
