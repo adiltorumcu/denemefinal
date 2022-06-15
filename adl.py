@@ -15,7 +15,7 @@ class QuitButton(arcade.gui.UIFlatButton) :
 
 
 class MyWindow(arcade.Window):
-<<<<<<< HEAD
+
     def __init__(self):         
             super().__init__(800,600, "UIFlatBUtton Example,",resizable=True)
 
@@ -58,14 +58,7 @@ class MyWindow(arcade.Window):
                 anchor_y="center_y",
                 child=self.v_box)
         ) 
-     
-def on_click_start(self, event):
-            print("Start:", event)
 
-def on_draw(self):
-            self.clear()
-            self.manager.draw()
-=======
     def __init__(self):
         super().__init__(800, 600, "UIFlatButton Example" , resizable=True)
 
@@ -115,7 +108,7 @@ def on_draw(self):
     def on_draw(self):
         self.clear()
         self.manager.draw()
->>>>>>> d730a498d6982480ca53a124ae2493228c8a28c4
+
 
 window = MyWindow()
 
@@ -245,7 +238,6 @@ while True:
     if ateskontrol:
         atesgit()
     for hedef in hedefler:
-<<<<<<< HEAD
         y = hedef.ycor()
         y = y - 2
         hedef.sety(y)
@@ -257,17 +249,4 @@ while True:
         if hedef.ycor() < -270 or hedef.distance(oyuncu) < 20:
             yaz.write('Maalesef, kaybettiniz!', align='center', font=('Courier', 24, 'bold'))
     if len(hedefler) == 0:
-        yaz.write('Tebrikler, kazandınız!', align='center', font=('Courier', 24, 'bold'))   
-=======
-            y = hedef.ycor()
-            y = y - 2
-            hedef.sety(y)
-            if hedef.distance(ates) < 20:
-                ates.hideturtle()
-                hedef.hideturtle()
-                hedefler.pop(hedefler.index(hedef))
-                winsound.PlaySound('patlama.wav', winsound.SND_ASYNC)
-
-            if hedef.ycor() < -270 or hedef.distance(oyuncu) < 20:
-                yaz.write('Maalesef, kabettiniz!', align='center', font=('Courier', 24, 'bold'))
->>>>>>> d730a498d6982480ca53a124ae2493228c8a28c4
+        yaz.write('Tebrikler, kazandınız!', align='center', font=('Courier', 24, 'bold'))
