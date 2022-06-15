@@ -148,7 +148,7 @@ def ateset():
     ateskontrol = True
 
 hedefler = []
-for i in range(7):
+for i in range(8):
     hedefler.append(turtle.Turtle())
 for hedef in hedefler:
     hedef.color('red')
