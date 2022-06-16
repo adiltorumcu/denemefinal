@@ -184,3 +184,22 @@ while True:
                 yaz.write('Maalesef, kaybettiniz!', align='center', font=('Courier', 24, 'bold'))               
     if len(hedefler) == 0:
         yaz.write('Tebrikler, kazandınız!', align='center', font=('Courier', 24, 'bold'))
+
+    """
+    Example code showing how to style UIFlatButtons.
+    """
+    import arcade
+    import arcade.gui
+
+
+    class MyWindow(arcade.Window):
+        def __init__(self):
+            super().__init__(800, 600, "UIFlatButton Example", resizable=True)
+
+        # --- Required for all code that uses UI element,
+        # a UIManager to handle the UI.
+            self.manager = arcade.gui.UIManager()
+            self.manager.enable()
+
+        # Set background color
+        arcade.set_background_color(arcade.color.DARK_BLUE_GRAY) 
