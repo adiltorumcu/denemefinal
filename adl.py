@@ -147,7 +147,16 @@ def ateset():
     ates.showturtle()
     ateskontrol = True
 
-hedefler = []
+durdur = False
+def değiştir():
+    global durdur
+    if durdur == True:
+        durdur = False
+    else:
+        durdur = True
+
+if not durdur:
+    hedefler = []
 for i in range(8):
     hedefler.append(turtle.Turtle())
 for hedef in hedefler:
@@ -160,17 +169,21 @@ for hedef in hedefler:
     x = random.randint(-280, 280)
     y = random.randint(180, 260)
     hedef.goto(x, y)
- 
- 
+    pencere.onkey(değiştir , "p")
+
 pencere.listen()
 pencere.onkey(sola_git,'Left')
 pencere.onkey(saga_git,'Right')
 pencere.onkey(yukari_git,'Up')
 pencere.onkey(asagi_git,'Down')
 pencere.onkey(ateset, 'space')
+
+
+
+
 while True:
     if ateskontrol:
-        atesgit()
+            atesgit()
     for hedef in hedefler:
         y = hedef.ycor()
         y = y - 2
@@ -180,7 +193,7 @@ while True:
             hedef.hideturtle()
             hedefler.pop(hedefler.index(hedef))
             winsound.PlaySound('patlama.wav', winsound.SND_ASYNC)
-            if hedef.ycor() < -270 or hedef.distance(oyuncu) < 20:
-                yaz.write('Maalesef, kaybettiniz!', align='center', font=('Courier', 24, 'bold'))               
+        if hedef.ycor() < -270 or hedef.distance(oyuncu) < 20:
+            yaz.write('Maalesef, kabettiniz!', align='center', font=('Courier', 24, 'bold'))
     if len(hedefler) == 0:
         yaz.write('Tebrikler, kazandınız!', align='center', font=('Courier', 24, 'bold'))
