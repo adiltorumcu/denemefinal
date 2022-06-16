@@ -218,3 +218,27 @@ while True:
             "border_color_pressed": arcade.color.WHITE,  # also used when hovered
             "font_color_pressed": arcade.color.BLACK,
         }
+
+        red_style = {
+            "font_name": ("calibri", "arial"),
+            "font_size": 15,
+            "font_color": arcade.color.WHITE,
+            "border_width": 2,
+            "border_color": None,
+            "bg_color": arcade.color.REDWOOD,
+
+            # used if button is pressed
+            "bg_color_pressed": arcade.color.WHITE,
+            "border_color_pressed": arcade.color.RED,  # also used when hovered
+            "font_color_pressed": arcade.color.RED,
+        }
+
+        # Create a vertical BoxGroup to align buttons
+        self.v_box = arcade.gui.UIBoxLayout(space_between=20)
+
+        # Create the buttons
+        demo_button_1 = arcade.gui.UIFlatButton(text="replay", width=200, style=default_style)
+        
+
+        self.v_box.add(demo_button_1)
+       
