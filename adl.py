@@ -147,7 +147,16 @@ def ateset():
     ates.showturtle()
     ateskontrol = True
 
-hedefler = []
+durdur = False
+def değiştir():
+    global durdur
+    if durdur == True:
+        durdur = False
+    else:
+        durdur = True
+
+if not durdur:
+    hedefler = []
 for i in range(8):
     hedefler.append(turtle.Turtle())
 for hedef in hedefler:
@@ -160,17 +169,21 @@ for hedef in hedefler:
     x = random.randint(-280, 280)
     y = random.randint(180, 260)
     hedef.goto(x, y)
- 
- 
+    pencere.onkey(değiştir , "p")
+
 pencere.listen()
 pencere.onkey(sola_git,'Left')
 pencere.onkey(saga_git,'Right')
 pencere.onkey(yukari_git,'Up')
 pencere.onkey(asagi_git,'Down')
 pencere.onkey(ateset, 'space')
+
+
+
+
 while True:
     if ateskontrol:
-        atesgit()
+            atesgit()
     for hedef in hedefler:
         y = hedef.ycor()
         y = y - 2
@@ -185,61 +198,4 @@ while True:
     if len(hedefler) == 0:
         yaz.write('Tebrikler, kazandınız!', align='center', font=('Courier', 24, 'bold'))
 
-    """
-    Example code showing how to style UIFlatButtons.
-    """
-    import arcade
-    import arcade.gui
-
-
-    class MyWindow(arcade.Window):
-        def __init__(self):
-            super().__init__(800, 600, "UIFlatButton Example", resizable=True)
-
-        # --- Required for all code that uses UI element,
-        # a UIManager to handle the UI.
-            self.manager = arcade.gui.UIManager()
-            self.manager.enable()
-
-        # Set background color
-        arcade.set_background_color(arcade.color.DARK_BLUE_GRAY)
-
-        # Render button
-        default_style = {
-            "font_name": ("calibri", "arial"),
-            "font_size": 15,
-            "font_color": arcade.color.WHITE,
-            "border_width": 2,
-            "border_color": None,
-            "bg_color": (21, 19, 21),
-
-            # used if button is pressed
-            "bg_color_pressed": arcade.color.WHITE,
-            "border_color_pressed": arcade.color.WHITE,  # also used when hovered
-            "font_color_pressed": arcade.color.BLACK,
-        }
-
-        red_style = {
-            "font_name": ("calibri", "arial"),
-            "font_size": 15,
-            "font_color": arcade.color.WHITE,
-            "border_width": 2,
-            "border_color": None,
-            "bg_color": arcade.color.REDWOOD,
-
-            # used if button is pressed
-            "bg_color_pressed": arcade.color.WHITE,
-            "border_color_pressed": arcade.color.RED,  # also used when hovered
-            "font_color_pressed": arcade.color.RED,
-        }
-
-        # Create a vertical BoxGroup to align buttons
-        self.v_box = arcade.gui.UIBoxLayout(space_between=20)
-
-        # Create the buttons
-        demo_button_1 = arcade.gui.UIFlatButton(text="replay", width=200, style=default_style)
-        
-        
-        self.v_box.add(demo_button_1)
-
-       
+   
