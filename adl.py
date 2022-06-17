@@ -243,7 +243,6 @@ while True:
         #checks if a mouse is clicked
         if ev.type == pygame.MOUSEBUTTONDOWN:
 
-            #if the mouse is clicked on the
-            # button the game is terminated
-            if width/2 <= mouse[0] <= width/2+140 and height/2 <= mouse[1] <= height/2+40:
-                pygame.quit()
+
+    
+
