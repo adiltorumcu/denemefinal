@@ -194,7 +194,8 @@ while True:
             hedefler.pop(hedefler.index(hedef))
             winsound.PlaySound('patlama.wav', winsound.SND_ASYNC)
             if hedef.ycor() < -270 or hedef.distance(oyuncu) < 20:
-                yaz.write('Maalesef, kaybettiniz!', align='center', font=('Courier', 24, 'bold'))             
+                yaz.write('Maalesef, kaybettiniz!', align='center', font=('Courier', 24, 'bold'))
+                pencere.mainloop(7)             
     if len(hedefler) == 0:
         yaz.write('Tebrikler, kazandınız!', align='center', font=('Courier', 24, 'bold'))
 
