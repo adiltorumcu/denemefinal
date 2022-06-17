@@ -232,7 +232,7 @@ while True:
 
 # rendering a text written in
 # this font
-    text = smallfont.render('quit' , True , color)
+    text = smallfont.render('Replay' , True , color)
     while True:
 
         for ev in pygame.event.get():
